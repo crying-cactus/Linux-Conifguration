@@ -10,18 +10,37 @@ import =[
 [env]
 
 [window]
-decorations = "Full"
-opacity = 0.6
-blur = true
-decorations_theme_variant = "Dark"
-padding = { x = 20, y = 20  }
+title = "Alacritty"
+dynamic_padding = false
+# decorations = "Full"
+opacity = 1.0
+# decorations_theme_variant = "Dark"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
 
 [scrolling]
 history = 5000
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 size = 12
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono"
+style = "Regular"
 
 [colors]
 
@@ -40,8 +59,8 @@ size = 12
 [keyboard]
 bindings = [
 	# CLIPBOARD
-	{ key = "V", mods = "Super", action = "Paste" },
-	{ key = "C", mods = "Super", action = "Copy" }
+	{ key = "V", mods = "Control", action = "Paste" },
+	{ key = "C", mods = "Control", action = "Copy" }
 ]
 
 [debug]
