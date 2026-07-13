@@ -1,0 +1,109 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 18";
+    show-icons: false;
+    cycle: false;
+
+}
+
+@theme "/dev/null"
+
+* {
+    text-color:  #ffeedd;
+    background-color:  rgba(0,0,0,0);
+    dark: #1c1c1c;
+    // Black
+    black:       #3d352a;
+    lightblack:  #554444;
+    //
+    // Red
+    red:         #cd5c5c;
+    lightred:    #cc5533;
+    //
+    // Green
+    green:       #86af80;
+    lightgreen:  #88cc22;
+    //
+    // Yellow
+    yellow:      #e8ae5b;
+    lightyellow:     #ffa75d;
+    //
+    // Blue
+    blue:      #6495ed;
+    lightblue:     #87ceeb;
+    //
+    // Magenta
+    magenta:      #deb887;
+    lightmagenta:     #996600;
+    //
+    // Cyan
+    cyan:      #b0c4de;
+    lightcyan:     #b0c4de;
+    //
+    // White
+    white:      #bbaa99;
+    lightwhite:     #ddccbb;
+    //
+    // Bold, Italic, Underline
+    highlight:     bold #ffffff;
+}
+window {
+    width: 325px;
+    lines: 5;
+    border: 0.1em;
+    border-radius: 12px;
+    text-color: @lightwhite;
+}
+mainbox {
+    children: [ "listview" ];
+    expand: true;
+    background-color: @dark;
+    spacing: 1em;
+}
+listview {
+  // padding: <below search bar> <space from left side> <no idea>
+    padding: 0.2em;
+    dynamic: true;
+    lines: 5;
+}
+
+element-icon {
+    size: 1em;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+    vertical-align: 0.5;
+}
+element selected normal {
+    background-color: @dark;
+    text-color: @lightred;
+}
+element normal active {
+    text-color: @lightblue;
+}
+element normal urgent {
+    text-color: @lightred;
+}
+element alternate normal {
+}
+element alternate active {
+    text-color: @lightblue;
+}
+element alternate urgent {
+    text-color: @lightred;
+}
+element selected active {
+    background-color: @lightblue;
+    text-color: @dark;
+}
+element selected urgent {
+    background-color: @lightred;
+    text-color: @dark;
+}
+error-message {
+    expand: true;
+    background-color: red;
+    border-color: darkred;
+    border: 2px;
+    padding: 1em;
+}

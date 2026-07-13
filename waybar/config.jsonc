@@ -1,0 +1,258 @@
+// -*- mode: jsonc -*-
+//
+// ==================== NERD FONT ICON CHEAT SHEET ====================
+// Copy-paste any glyph below directly into a "format" or "format-icons"
+// string value. Requires a Nerd Font (e.g. "JetBrainsMono Nerd Font")
+// set in your waybar style.css "font-family". Rendering depends on the
+// specific Nerd Font/version installed — if a glyph shows as a box,
+// try a different/updated Nerd Font patch.
+//
+// -- Workspaces / general --
+//        (workspace dot, active dot, box, box-check)
+//                    (numbers 1-9, if you want icon-style digits)
+//
+// -- System / power --
+//     (power "\u23fb", restart "\udb81\udf09", sleep/suspend "\udb82\udd04", lock "\uea75")
+//     (terminal "\uf120", folder "\uf07b", open folder "\uf07c", file "\uf15b", settings/gear "\uf013")
+//
+// -- Audio --
+//      (volume high "\uf028", medium, low "\uf027", mute "\ueee8", mic "\uf130", mic mute "\uf131"
+//      bluetooth audio "\udb80\udcb0", audiosettings "\ueb52", )
+//
+// -- Network --
+//    (wifi strength 1 "\udb82\udd1f", wifi strenght 2 "\udb82\udd22"
+//     wifi strenght 3 "f0925", wifi strength 4 "\udb82\udd28", wifi-off "\udb82\udd2d", 
+//     wifi strenght 0 "\udb82\udd2f", ethernet connected "\udb80\ude01", ethernet disconnected "\udb80\ude02"
+//     globe "\ueb01")
+//
+// -- Bluetooth --
+//    (bluetooth-connected "\uf293", bluetooth-off "\udb80\udcb2", bluetooth settings "\udb80\udcb1")
+//
+// -- Media / clock --
+//      (play "\uf144", pause "\uf28b", stop "\ueba5", next "\udb81\ude61", prev "\udb81\ude63")
+//     (clock, calendar "\uf133", alarm)
+//
+// -- CPU / memory / temperature --
+//     (cpu/chip "\uec19", memory/ram "\uefc5", thermometer 0 "\uf2cb"; 1 "\uf2ca"; 2 "\uf2c9"; 3 "\uf2c8"; 4 "\uf2c7", fan)
+//
+// -- Misc UI --
+//    (up chevron, down chevron, close/X, check)
+//
+// ======================================================================
+//
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/workspaces"
+        //"sway/mode"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "mpd",
+        "idle_inhibitor",
+        "pulseaudio",
+        "network",
+        "power-profiles-daemon",
+        "backlight",
+        "keyboard-state",
+//        "battery",
+//        "battery#bat2",
+        "tray",
+        "custom/power"
+    ],
+
+    // Modules configuration
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "active": "\uf192",
+            "default": "x"
+        },
+        "persistent-workspaces": {
+            "DP-4": [1, 2, 3, 4, 5],
+            "DP-3": [6, 7, 8, 9, 10]
+        }
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "\udb86\udda0",
+            "deactivated": "\udb86\udd9f"
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+        // "icons": {
+        //   "blueman": "bluetooth",
+        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        // }
+    },
+    "clock": {
+        "timezone": "Europe/Zurich",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/power": {
+        "format" : "⏻ ",
+		"tooltip": false,
+		"on-click": "~/.config/rofi/scripts/powermenu.sh"
+//		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+//		"menu-actions": {
+//			"shutdown": "shutdown",
+//			"reboot": "reboot",
+//			"suspend": "systemctl suspend",
+//			"hibernate": "systemctl hibernate"
+		}
+    }
+}

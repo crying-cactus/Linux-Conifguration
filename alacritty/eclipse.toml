@@ -1,0 +1,36 @@
+# Eclipse theme — matches panor_center.jpg (solar eclipse + spaceship wallpaper)
+# Drop into ~/.config/alacritty/eclipse.toml and import from alacritty.toml:
+#   [general]
+#   import = ["~/.config/alacritty/eclipse.toml"]
+
+[colors.primary]
+background = "#0d0a08"
+foreground = "#f2e9dc"
+
+[colors.cursor]
+text = "#0d0a08"
+cursor = "#f2a93b"
+
+[colors.selection]
+text = "#0d0a08"
+background = "#f2a93b"
+
+[colors.normal]
+black   = "#0d0a08"
+red     = "#d9522f"
+green   = "#8a9a5b"
+yellow  = "#f2a93b"
+blue    = "#4a7fa5"
+magenta = "#8a4b6b"
+cyan    = "#3fa9a0"
+white   = "#f2e9dc"
+
+[colors.bright]
+black   = "#3a2f28"
+red     = "#ff6b3d"
+green   = "#a8c66c"
+yellow  = "#ffcc66"
+blue    = "#6ab7ff"
+magenta = "#c77dab"
+cyan    = "#7fdfd0"
+white   = "#fff8ef"
